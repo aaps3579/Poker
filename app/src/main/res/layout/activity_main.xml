@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.game.poker.MainActivity">
+
+    <TextView
+        android:id="@+id/Player1tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/Player1"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_player1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Player1tv"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imvP1C1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP1C2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP1C3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP1C4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP1C5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Player2tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ll_player1"
+        android:text="@string/Player2"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_player2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Player2tv"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imvP2C1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP2C2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP2C3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP2C4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imvP2C5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:adjustViewBounds="true"
+            android:src="@drawable/back" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ll_player2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dealButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/DealButton" />
+
+        <Button
+            android:id="@+id/compareButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/CompareButton" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Player1tvCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ll_button"
+        android:text="Player 1" />
+
+    <TextView
+        android:id="@+id/Player2tvCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Player1tvCard"
+        android:layout_marginLeft="145dp"
+        android:layout_marginStart="145dp"
+        android:layout_toEndOf="@+id/Player2tv"
+        android:layout_toRightOf="@+id/Player2tv"
+        android:text="Player 2" />
+
+    <TextView
+        android:id="@+id/P1Card1Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Player1tvCard"
+        android:layout_marginTop="21dp"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P1Card2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/P1Card1Value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/P1Card1Value"
+        android:layout_below="@+id/P1Card1Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P1Card3Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/P1Card2Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P1Card4Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/P1Card3Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P1Card5Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/P1Card4Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P2Card1Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Player2tvCard"
+        android:layout_alignStart="@+id/Player2tvCard"
+        android:layout_alignTop="@+id/P1Card1Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P2Card2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/P2Card1Value"
+        android:layout_alignStart="@+id/P2Card1Value"
+        android:layout_below="@+id/P2Card1Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P2Card3Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/P2Card2Value"
+        android:layout_alignStart="@+id/P2Card2Value"
+        android:layout_below="@+id/P2Card2Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P2Card4Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/P2Card3Value"
+        android:layout_alignStart="@+id/P2Card3Value"
+        android:layout_below="@+id/P2Card3Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/P2Card5Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/P1Card5Value"
+        android:layout_alignLeft="@+id/P2Card4Value"
+        android:layout_alignStart="@+id/P2Card4Value"
+        android:maxLines="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/handTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Hand Values:"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/P1Card5Value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/P1HandValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/handTV"
+        android:layout_marginTop="11dp"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/P2HandValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/P1HandValue"
+        android:layout_alignBottom="@+id/P1HandValue"
+        android:layout_alignLeft="@+id/P2Card5Value"
+        android:layout_alignStart="@+id/P2Card5Value"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/ResultTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Result:"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/ResultValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/P2HandValue"
+        android:layout_toRightOf="@+id/P2HandValue"
+        android:maxLines="1" />
+
+
+</RelativeLayout>

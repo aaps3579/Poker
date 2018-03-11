@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Play Poker!</string>
+    <string name="Player1">Player 1</string>
+    <string name="Player2">Player 2</string>
+    <string name="DealButton">Deal</string>
+    <string name="CompareButton">Compare</string>
+</resources>
