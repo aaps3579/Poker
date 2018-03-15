@@ -4,6 +4,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -66,7 +67,20 @@ public class MainActivity extends AppCompatActivity {
         dealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dealCards();
+                //ToDo Comment below line if you want to distribute cards using any od the below options
+                dealCardsRandomly();
+                //ToDo Uncomment below line if you want to distribute Royal Flush
+                //dealCardsRoyalFlush();
+                //ToDo Uncomment below line if you want to distribute Striaght
+                //dealCardsStraight();
+                //ToDo Uncomment below line if you want to distribute Four of a Kind
+                //dealCardsFourOfAKind();
+                //ToDo Uncomment below line if you want to distribute Full House
+                //dealCardsFullHouse();
+                //ToDo Uncomment below line if you want to distribute Two Pair
+                //dealCardsTwoPair();
+                //ToDo Uncomment below line if you want to distribute One Pair
+                //dealCardsOnePair();
             }
         });
         compareButton.setOnClickListener(new View.OnClickListener() {
@@ -91,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
                 int P1=-1,P2=-1;
                for(int i=0;i<winningHands.length;i++)
                {
-                   if(winningHands[i].equalsIgnoreCase(P1Status))
+                   if(winningHands[i].contains(P1Status))
                       P1=i;
-                   if(winningHands[i].equalsIgnoreCase(P2Status))
+                   if(winningHands[i].contains(P2Status))
                        P2=i;
                }
                if(P1<P2)
@@ -106,11 +120,13 @@ public class MainActivity extends AppCompatActivity {
                    boolean aceTie=true;
                    if(P1Cards.get(0).getRank()==1&&P2Cards.get(0).getRank()!=1)
                    {
+                       Log.d("TIE","Ace of P1");
                        tvResult.setText("Player1's Hand is better!");
                        aceTie=false;
                    }
                    if(P2Cards.get(0).getRank()==1&&P1Cards.get(0).getRank()!=1)
                    {
+                       Log.d("TIE","Ace of P2");
                        tvResult.setText("Player2's Hand is better!");
                        aceTie=false;
                    }
@@ -120,21 +136,77 @@ public class MainActivity extends AppCompatActivity {
                         {
                             if(P1Cards.get(i).getRank()>P2Cards.get(i).getRank()) {
                                 tvResult.setText("Player1's Hand is better!");
+                                aceTie=false;
                                 break;
                             }
                             else if(P1Cards.get(i).getRank()<P2Cards.get(i).getRank()) {
                                 tvResult.setText("Player2's Hand is better!");
+                                aceTie=false;
                                 break;
                             }
                         }
                    }
+                   if(aceTie)
+                       tvResult.setText("Draw");
                }
 
 
             }
         });
     }
-    void dealCards()
+
+    void dealCardsRoyalFlush()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.aceofspades));
+        textViews[0].setText("Ace of Spades");
+        rank=getCardRank("Ace of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.kingofspades));
+        textViews[1].setText("King of Spades");
+        rank=getCardRank("King of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.queenofspades));
+        textViews[2].setText("Queen of Spades");
+        rank=getCardRank("Queen of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.jackofspades));
+        textViews[3].setText("Jack of Spades");
+        rank=getCardRank("Jack of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.tenofspades));
+        textViews[4].setText("Ten of Spades");
+        rank=getCardRank("Ten of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+
+    }
+    void dealCardsRandomly()
     {
         dealButton.setEnabled(false);
         Random random=new Random();
@@ -156,6 +228,307 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    void dealCardsStraight()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.aceofspades));
+        textViews[0].setText("Ace of Spades");
+        rank=getCardRank("Ace of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.kingofdiamonds));
+        textViews[1].setText("King of Diamonds");
+        rank=getCardRank("King of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.queenofhearts));
+        textViews[2].setText("Queen of Hearts");
+        rank=getCardRank("Queen of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.jackofdiamonds));
+        textViews[3].setText("Jack of Diamonds");
+        rank=getCardRank("Jack of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.tenofhearts));
+        textViews[4].setText("Ten of Hearts");
+        rank=getCardRank("Ten of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+    }
+    void dealCardsFourOfAKind()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.aceofspades));
+        textViews[0].setText("Ace of Spades");
+        rank=getCardRank("Ace of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.aceofclubs));
+        textViews[1].setText("Ace of Clubs");
+        rank=getCardRank("Ace of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.aceofdiamonds));
+        textViews[2].setText("Ace of Diamonds");
+        rank=getCardRank("Ace of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.aceofhearts));
+        textViews[3].setText("Ace of Hearts");
+        rank=getCardRank("Ace of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.tenofspades));
+        textViews[4].setText("Ten of Spades");
+        rank=getCardRank("Ten of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+    }
+    void dealCardsFullHouse()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.aceofspades));
+        textViews[0].setText("Ace of Spades");
+        rank=getCardRank("Ace of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.aceofclubs));
+        textViews[1].setText("Ace of Clubs");
+        rank=getCardRank("Ace of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.aceofdiamonds));
+        textViews[2].setText("Ace of Diamonds");
+        rank=getCardRank("Ace of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.deuceofclubs));
+        textViews[3].setText("Deuce of Hearts");
+        rank=getCardRank("Deuce of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.deuceofspades));
+        textViews[4].setText("Deuce of Spades");
+        rank=getCardRank("Deuce of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+    }
+    void dealCardsThreeOfAKind()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.aceofspades));
+        textViews[0].setText("Ace of Spades");
+        rank=getCardRank("Ace of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.aceofclubs));
+        textViews[1].setText("Ace of Clubs");
+        rank=getCardRank("Ace of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.aceofdiamonds));
+        textViews[2].setText("Ace of Diamonds");
+        rank=getCardRank("Ace of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.deuceofclubs));
+        textViews[3].setText("Deuce of Hearts");
+        rank=getCardRank("Deuce of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.tenofspades));
+        textViews[4].setText("Ten of Spades");
+        rank=getCardRank("Ten of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+    }
+    void dealCardsTwoPair()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.aceofspades));
+        textViews[0].setText("Ace of Spades");
+        rank=getCardRank("Ace of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.aceofclubs));
+        textViews[1].setText("Ace of Clubs");
+        rank=getCardRank("Ace of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.deuceofdiamonds));
+        textViews[2].setText("Deuce of Diamonds");
+        rank=getCardRank("Deuce of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.deuceofclubs));
+        textViews[3].setText("Deuce of Hearts");
+        rank=getCardRank("Deuce of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.tenofspades));
+        textViews[4].setText("Ten of Spades");
+        rank=getCardRank("Ten of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+    }
+    void dealCardsOnePair()
+    {
+        dealButton.setEnabled(false);
+        int[] rank;
+        imageViews[0].setImageDrawable(getResources().getDrawable(R.drawable.fourofspades));
+        textViews[0].setText("Four of Spades");
+        rank=getCardRank("Four of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[1].setImageDrawable(getResources().getDrawable(R.drawable.aceofclubs));
+        textViews[1].setText("Ace of Clubs");
+        rank=getCardRank("Ace of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[2].setImageDrawable(getResources().getDrawable(R.drawable.deuceofdiamonds));
+        textViews[2].setText("Deuce of Diamonds");
+        rank=getCardRank("Deuce of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[3].setImageDrawable(getResources().getDrawable(R.drawable.deuceofclubs));
+        textViews[3].setText("Deuce of Hearts");
+        rank=getCardRank("Deuce of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[4].setImageDrawable(getResources().getDrawable(R.drawable.tenofspades));
+        textViews[4].setText("Ten of Spades");
+        rank=getCardRank("Ten of Spades");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[5].setImageDrawable(getResources().getDrawable(R.drawable.eightofclubs));
+        textViews[5].setText("Eight of Clubs");
+        rank=getCardRank("Eight of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+        imageViews[6].setImageDrawable(getResources().getDrawable(R.drawable.threeofdiamonds));
+        textViews[6].setText("Three of Diamonds");
+        rank=getCardRank("Three of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[7].setImageDrawable(getResources().getDrawable(R.drawable.sixofdiamonds));
+        textViews[7].setText("Six of Diamonds");
+        rank=getCardRank("Six of Diamonds");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[8].setImageDrawable(getResources().getDrawable(R.drawable.jackofhearts));
+        textViews[8].setText("Jack of Hearts");
+        rank=getCardRank("Jack of Hearts");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+        imageViews[9].setImageDrawable(getResources().getDrawable(R.drawable.tenofclubs));
+        textViews[9].setText("Ten of Clubs");
+        rank=getCardRank("Ten of Clubs");
+        handRankList.add(new HandRank(rank[0],rank[1]));
+
+    }
+
     void populateList()
     {
         cardList.add(new CardDetails("Ace of Clubs",getResources().getDrawable(R.drawable.aceofclubs)));
@@ -328,13 +701,13 @@ public class MainActivity extends AppCompatActivity {
         if(C1Rank==C4Rank||C2Rank==C5Rank)
             return "Four of a Kind";
         if(C1Rank==C2Rank&&C3Rank==C4Rank&&C4Rank==C5Rank||C1Rank==C2Rank&&C2Rank==C3Rank&&C4Rank==C5Rank)
-            return "Full House ";
+            return "Full House";
         if(C1Suit==C2Suit&&C2Suit==C3Suit&&C3Suit==C4Suit&&C4Suit==C5Suit)
             return "Flush";
         if(C1Rank==C2Rank+1&&C2Rank==C3Rank+1&&C3Rank==C4Rank+1&&C4Rank==C5Rank+1)
             return "Straight";
         if(C1Rank==1&&C2Rank==10&&C3Rank==11&&C4Rank==12&&C5Rank==13)
-            return "Straight2";
+            return "Straight";
         if(C1Rank==C2Rank&&C2Rank==C3Rank||C2Rank==C3Rank&&C3Rank==C4Rank||C3Rank==C4Rank&&C4Rank==C5Rank)
             return "Three of a Kind";
         if(C1Rank==C2Rank&&C3Rank==C4Rank||C2Rank==C3Rank&&C4Rank==C5Rank)

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#800000"
     tools:context="com.game.poker.MainActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:text="@string/Player1"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -30,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:adjustViewBounds="true"
+            android:padding="3dp"
             android:src="@drawable/back" />
 
         <ImageView
@@ -37,11 +40,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:padding="3dp"
             android:adjustViewBounds="true"
             android:src="@drawable/back" />
 
         <ImageView
             android:id="@+id/imvP1C3"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -50,6 +55,7 @@
 
         <ImageView
             android:id="@+id/imvP1C4"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -58,6 +64,7 @@
 
         <ImageView
             android:id="@+id/imvP1C5"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -73,6 +80,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ll_player1"
         android:text="@string/Player2"
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -86,6 +94,7 @@
 
         <ImageView
             android:id="@+id/imvP2C1"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -94,6 +103,7 @@
 
         <ImageView
             android:id="@+id/imvP2C2"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -102,6 +112,7 @@
 
         <ImageView
             android:id="@+id/imvP2C3"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -110,6 +121,7 @@
 
         <ImageView
             android:id="@+id/imvP2C4"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -118,6 +130,7 @@
 
         <ImageView
             android:id="@+id/imvP2C5"
+            android:padding="3dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -156,7 +169,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ll_button"
-        android:text="Player 1" />
+        android:text="Player 1"
+        android:textColor="@android:color/holo_orange_light" />
 
     <TextView
         android:id="@+id/Player2tvCard"
@@ -167,7 +181,8 @@
         android:layout_marginStart="145dp"
         android:layout_toEndOf="@+id/Player2tv"
         android:layout_toRightOf="@+id/Player2tv"
-        android:text="Player 2" />
+        android:text="Player 2"
+        android:textColor="@android:color/holo_orange_light" />
 
     <TextView
         android:id="@+id/P1Card1Value"
@@ -178,18 +193,18 @@
         android:layout_below="@+id/Player1tvCard"
         android:layout_marginTop="21dp"
         android:maxLines="1"
-        android:text="" />
+        android:text=""
+        android:textColor="@android:color/holo_orange_dark" />
 
     <TextView
         android:id="@+id/P1Card2Value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/P1Card1Value"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/P1Card1Value"
         android:layout_below="@+id/P1Card1Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -200,6 +215,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/P1Card2Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -210,6 +226,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/P1Card3Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -220,6 +237,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/P1Card4Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -230,6 +248,7 @@
         android:layout_alignStart="@+id/Player2tvCard"
         android:layout_alignTop="@+id/P1Card1Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -240,6 +259,7 @@
         android:layout_alignStart="@+id/P2Card1Value"
         android:layout_below="@+id/P2Card1Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -250,6 +270,7 @@
         android:layout_alignStart="@+id/P2Card2Value"
         android:layout_below="@+id/P2Card2Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -260,6 +281,7 @@
         android:layout_alignStart="@+id/P2Card3Value"
         android:layout_below="@+id/P2Card3Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
@@ -270,18 +292,20 @@
         android:layout_alignLeft="@+id/P2Card4Value"
         android:layout_alignStart="@+id/P2Card4Value"
         android:maxLines="1"
+        android:textColor="@android:color/holo_orange_dark"
         android:text="" />
 
     <TextView
         android:id="@+id/handTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/P1Card5Value"
+        android:layout_marginTop="12dp"
         android:maxLines="1"
         android:text="Hand Values:"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/P1Card5Value"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textColor="@android:color/holo_orange_light" />
 
     <TextView
         android:id="@+id/P1HandValue"
@@ -291,6 +315,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/handTV"
         android:layout_marginTop="11dp"
+        android:textColor="@android:color/holo_orange_dark"
         android:maxLines="1" />
 
     <TextView
@@ -301,25 +326,28 @@
         android:layout_alignBottom="@+id/P1HandValue"
         android:layout_alignLeft="@+id/P2Card5Value"
         android:layout_alignStart="@+id/P2Card5Value"
+        android:textColor="@android:color/holo_orange_dark"
         android:maxLines="1" />
 
     <TextView
         android:id="@+id/ResultTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Result:"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:maxLines="1"
+        android:text="Result:"
+        android:textColor="@android:color/holo_orange_light" />
 
     <TextView
         android:id="@+id/ResultValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/P2HandValue"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/P2HandValue"
-        android:layout_toRightOf="@+id/P2HandValue"
+        android:layout_alignStart="@+id/P2HandValue"
+        android:textColor="@android:color/holo_orange_dark"
         android:maxLines="1" />
 
 
